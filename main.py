@@ -27,7 +27,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def read_root():
-    return FileResponse("index.html")
+    return FileResponse("static/index.html")
 
 @app.get("/login")
 def read_login():
@@ -35,7 +35,7 @@ def read_login():
 
 @app.get("/index")
 def read_index():
-    return FileResponse("static/index.html")
+    return FileResponse("index.html")
 
 def get_db():
     db = SessionLocal()
