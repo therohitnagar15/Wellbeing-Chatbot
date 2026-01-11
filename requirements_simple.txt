@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-sqlalchemy
-textblob
-reportlab
-pydantic
-python-dotenv
-python-multipart
-matplotlib
