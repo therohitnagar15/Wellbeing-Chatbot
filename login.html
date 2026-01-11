@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wellbeing Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="login-container">
+    <h2>Wellbeing Login</h2>
+
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+    <button onclick="register()">Register</button>
+</div>
+
+<script>
+async function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    try {
+        const res = await fetch("/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const data = await res.json();
+
+        if (data.message) {
+            // save user session
+            localStorage.setItem("user", username);
+
+            // redirect to index page
+            window.location.href = "/index";
+        } else {
+            alert(data.error || "Login failed");
+        }
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+}
+
+async function register() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const res = await fetch("/register", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    });
+
+    const data = await res.json();
+
+    if (data.message) {
+        alert("Registered successfully. Please login.");
+    } else {
+        alert(data.error);
+    }
+}
+</script>
+</body>
+</html>

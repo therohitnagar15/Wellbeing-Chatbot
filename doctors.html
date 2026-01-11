@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Consultation - Wellbeing Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .doctors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .doctors-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .doctors-header h1 {
+            color: #4a5568;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .doctors-header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .doctor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .doctor-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .doctor-specialty {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+
+        .doctor-experience {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .consult-btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .consult-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .back-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .doctors-container {
+                padding: 15px;
+            }
+
+            .doctors-header h1 {
+                font-size: 2rem;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="doctors-container">
+        <div class="doctors-header">
+            <h1>Doctor Consultation</h1>
+            <p>Connect with experienced mental health professionals for personalized support</p>
+        </div>
+
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <div class="doctor-avatar">👨‍⚕️</div>
+                <h3 class="doctor-name">Dr. Priya Sharma</h3>
+                <p class="doctor-specialty">Clinical Psychologist</p>
+                <p class="doctor-experience">15+ years experience in cognitive behavioral therapy</p>
+                <button class="consult-btn" onclick="startConsultation('Dr. Priya Sharma')">Start Consultation</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3 class="doctor-name">Dr. Rajesh Kumar</h3>
+                <p class="doctor-specialty">Psychiatrist</p>
+                <p class="doctor-experience">12+ years experience in medication management and therapy</p>
+                <button class="consult-btn" onclick="startConsultation('Dr. Rajesh Kumar')">Start Consultation</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👨‍⚕️</div>
+                <h3 class="doctor-name">Dr. Anjali Patel</h3>
+                <p class="doctor-specialty">Counseling Psychologist</p>
+                <p class="doctor-experience">10+ years experience in trauma-informed care</p>
+                <button class="consult-btn" onclick="startConsultation('Dr. Anjali Patel')">Start Consultation</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3 class="doctor-name">Dr. Vikram Singh</h3>
+                <p class="doctor-specialty">Clinical Therapist</p>
+                <p class="doctor-experience">8+ years experience in mindfulness-based therapy</p>
+                <button class="consult-btn" onclick="startConsultation('Dr. Vikram Singh')">Start Consultation</button>
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="window.location.href='/index'">Back to Chat</button>
+    </div>
+
+    <script>
+        function startConsultation(doctorName) {
+            alert(`Consultation with ${doctorName} will be available soon. Please check back later or contact our support team.`);
+        }
+    </script>
+</body>
+</html>
